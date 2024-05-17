@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "960450873565",
+    "project_id": "jbic-14cfd",
+    "storage_bucket": "jbic-14cfd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960450873565:android:e69ba1497acf1b7c963334",
+        "android_client_info": {
+          "package_name": "com.example.jbicv2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8InVqjZ5rE0QCU9PQYSLvM5kEuRQ--to"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
