@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jbicv2/main.dart';
 import 'package:jbicv2/src/repository/auth_repository.dart';

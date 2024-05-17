@@ -13,4 +13,10 @@ class AuthRepositoryImp extends AuthRepository {
   Future<void> signOut() {
     return _firebaseAuth.signOut();
   }
+  
+  @override
+  getCurrentUser() {
+    return _firebaseAuth.currentUser;
+  }
+  
 }

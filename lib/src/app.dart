@@ -17,15 +17,14 @@ class MyApp extends ConsumerWidget {
     ref.listen<AuthState>(authProvider, (previous, next) {
       if (next == AuthState.signedOut) {
         _navigatorKey.currentState
-            ?.pushNamedAndRemoveUntil(Routes.splash, (r) => false);
+            ?.pushNamedAndRemoveUntil(Routes.home, (r) => false);
       } else if (next == AuthState.signedIn) {
         _navigatorKey.currentState
-            ?.pushNamedAndRemoveUntil(Routes.splash, (r) => false);
+            ?.pushNamedAndRemoveUntil(Routes.home, (r) => false);
       }
     });
     return MaterialApp(
       navigatorKey: _navigatorKey,
-      title: 'Authentication Flow',
       onGenerateRoute: Routes.routes,
     );
   }
