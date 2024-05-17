@@ -30,7 +30,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-/lib/firebase_options.dart
 
 # Symbolication related
 app.*.symbols
@@ -43,3 +42,8 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 /venv/
+
+#
+firebase_options.dart
+google-services.json
+#
