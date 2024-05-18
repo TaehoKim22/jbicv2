@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jbicv2/src/notifiers/main_notifier.dart';
+import 'package:jbicv2/src/pages/book_page.dart';
 import 'package:jbicv2/src/pages/widgets/book_card_widget.dart';
 
 final mainPageProvider = ChangeNotifierProvider.family<MainNotifier, String>((ref, userName) {
@@ -39,9 +39,14 @@ class MainPage extends ConsumerWidget {
                     child: ListView.builder(
                       itemCount: mainNotifier.userBookList?.bookList?.length ?? 0,
                       itemBuilder: (context, index) {
-                        //final book = mainNotifier.userBookList!.bookList![index];
                         return InkWell(
                           onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BookPage(book: mainNotifier.userBookList!.bookList![index]),
+                              )
+                            );
                           },
                           child: BookCard(book: mainNotifier.userBookList!.bookList![index]),
                         );

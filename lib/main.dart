@@ -10,7 +10,9 @@ import 'package:jbicv2/src/repository/implementation/auth_repository.dart';
 import 'package:jbicv2/src/app.dart';
 import 'package:jbicv2/src/repository/implementation/book_repository.dart';
 import 'package:jbicv2/src/repository/implementation/book_user_repository.dart';
+import 'package:jbicv2/src/repository/implementation/review_repository.dart';
 import 'package:jbicv2/src/repository/implementation/user_book_list_repositry.dart';
+import 'package:jbicv2/src/repository/review_repository.dart';
 import 'package:jbicv2/src/repository/user_book_list_repository.dart';
 //import 'firebase_options.dart';
 
@@ -38,5 +40,5 @@ Future<void> injectDependencies() async{
   getIt.registerLazySingleton<BookRepository>(() => BookRepositoryImp());
   getIt.registerLazySingleton<BookUserRepository>(() => BookUserRepositoryImp());
   getIt.registerLazySingleton<UserBookListRepository>(() => UserBookListRepositoryImp());
-
+  getIt.registerLazySingleton<ReviewRepository>(() => ReviewRepositoryImp());
 }

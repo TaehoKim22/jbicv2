@@ -7,6 +7,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:jbicv2/src/models/book.dart';
 import 'package:jbicv2/src/models/book_user.dart';
+import 'package:jbicv2/src/models/review.dart';
 import 'package:jbicv2/src/models/user_book_list.dart';
 
 class FirebaseDataSource {
@@ -54,8 +55,14 @@ class FirebaseDataSource {
   Future<BookUser> getUser(String userName) async{
     String jsonString = await rootBundle.loadString('assets/userSample.json');
     Map<String, dynamic> BookUserListMap = jsonDecode(jsonString) as Map<String, dynamic>;
-    var x = (BookUserListMap['users'] as List).map((bu) => BookUser.fromJson(bu)).toList();
-    return x[0];
+    var userList = (BookUserListMap['users'] as List).map((bu) => BookUser.fromJson(bu)).toList();
+    return userList[0];
+  }
+
+  Future<List<Review>> getBookReview(Book book) async {
+    String jsonString = await rootBundle.loadString('assets/reviewSample.json');
+    Map<String, dynamic> ReviewListMap = jsonDecode(jsonString) as Map<String, dynamic>;
+    return (ReviewListMap['reviews'] as List).map((reviewMap) => Review.fromJson(reviewMap)).toList();
   }
 
 }

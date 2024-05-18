@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jbicv2/src/pages/book_page.dart';
 import 'package:jbicv2/src/pages/home_page.dart';
 import 'package:jbicv2/src/pages/splash_page.dart';
 import 'package:jbicv2/src/pages/start_page.dart';
