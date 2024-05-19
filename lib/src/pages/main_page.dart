@@ -10,11 +10,10 @@ final mainPageProvider = ChangeNotifierProvider.family<MainNotifier, String>((re
   return notifier;
 });
 
-
 class MainPage extends ConsumerWidget {
   final String userName;
 
-  const MainPage({Key? key, required this.userName}) : super(key: key);
+  MainPage({Key? key, required this.userName}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

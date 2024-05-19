@@ -16,10 +16,10 @@ class BookNotifier extends ChangeNotifier{
   var isLoading;
   //final AuthRepository _authRepository = getIt();
 
-  void fetchBookReviews(Book book) async{
+  void fetchBookReviews(int bookID) async{
     try{
       isLoading = true;
-      var reviews = await _reviewRepository.getBookReview(book);
+      var reviews = await _reviewRepository.getBookReview(bookID);
       //var user = _authRepository.getCurrentUser();
       coverMyReviewList = reviews.where((review) => review.reviewType == 'Cover').toList();
       middleMyReviewList = reviews.where((review) => review.reviewType == 'Middle').toList();
@@ -32,7 +32,6 @@ class BookNotifier extends ChangeNotifier{
     }
     catch(e){
       isLoading = false;
-      print(e);
       notifyListeners();
     }
 

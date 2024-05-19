@@ -19,6 +19,7 @@ Review _$ReviewFromJson(Map<String, dynamic> json) => Review(
       rating: (json['rating'] as num).toDouble(),
       postTime: DateTime.parse(json['postTime'] as String),
       photoURL: json['photoURL'] as String?,
+      pageNum: (json['pageNum'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$ReviewToJson(Review instance) => <String, dynamic>{
@@ -34,4 +35,5 @@ Map<String, dynamic> _$ReviewToJson(Review instance) => <String, dynamic>{
       'likes': instance.likes,
       'rating': instance.rating,
       'postTime': instance.postTime.toIso8601String(),
+      'pageNum': instance.pageNum,
     };

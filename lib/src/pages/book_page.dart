@@ -4,13 +4,14 @@ import 'package:jbicv2/src/models/book.dart';
 import 'package:jbicv2/src/models/review.dart';
 import 'package:jbicv2/src/notifiers/book_notifier.dart';
 import 'package:animated_expandable_fab/animated_expandable_fab.dart';
+import 'package:jbicv2/src/pages/post_page.dart';
 import 'package:jbicv2/src/pages/widgets/review_card_widget.dart';
 import 'package:loading_gifs/loading_gifs.dart';
 
 
 final bookProvider = ChangeNotifierProvider.family<BookNotifier, Book>((ref, book){
   final notifier = BookNotifier();
-  notifier.fetchBookReviews(book);
+  notifier.fetchBookReviews(book.id);
   return notifier;
 });
 
@@ -33,18 +34,30 @@ class BookPage extends ConsumerWidget{
           children: [
               ActionButton(
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PostPage(reviewType: 'Cover', book: book)),
+                  );
                 }, 
                 icon: Icon(Icons.add),
                 text: Text("Cover\t"),
               ),
               ActionButton(
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PostPage(reviewType: 'Middle', book: book)),
+                  );
                 }, 
                 icon: Icon(Icons.add),
                 text: Text("Middle\t"),
               ),
               ActionButton(
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PostPage(reviewType: 'Final', book: book)),
+                  );
                 }, 
                 icon: Icon(Icons.add),
                 text: Text("Final\t"),

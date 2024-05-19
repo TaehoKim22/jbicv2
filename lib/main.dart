@@ -14,7 +14,7 @@ import 'package:jbicv2/src/repository/implementation/review_repository.dart';
 import 'package:jbicv2/src/repository/implementation/user_book_list_repositry.dart';
 import 'package:jbicv2/src/repository/review_repository.dart';
 import 'package:jbicv2/src/repository/user_book_list_repository.dart';
-//import 'firebase_options.dart';
+import 'firebase_options.dart';
 
 
 final getIt = GetIt.instance;
@@ -22,13 +22,9 @@ final getIt = GetIt.instance;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: const FirebaseOptions(
-      apiKey: "XXX",
-      appId: "XXX",
-      messagingSenderId: "XXX",
-      projectId: "XXX",
-    ),
+    options: DefaultFirebaseOptions.currentPlatform,
   );
+
 
   await injectDependencies();
   runApp(ProviderScope(child: MyApp()));

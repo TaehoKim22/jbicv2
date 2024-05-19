@@ -59,10 +59,14 @@ class FirebaseDataSource {
     return userList[0];
   }
 
-  Future<List<Review>> getBookReview(Book book) async {
+  Future<List<Review>> getBookReview(int bookID) async {
     String jsonString = await rootBundle.loadString('assets/reviewSample.json');
     Map<String, dynamic> ReviewListMap = jsonDecode(jsonString) as Map<String, dynamic>;
     return (ReviewListMap['reviews'] as List).map((reviewMap) => Review.fromJson(reviewMap)).toList();
+  }
+
+  Future<void> savePost(Book book, BookUser user, String reviewType, String comment, int? pageNum, DateTime postTime, double rating) async{
+
   }
 
 }

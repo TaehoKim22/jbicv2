@@ -9,9 +9,10 @@ class Review{
   final int id, bookID, userID, likes;
   final double rating;
   final DateTime postTime;
+  final int? pageNum;
   Review({required this.title, required this.author, required this.userName, required this.reviewType,
   required this.comment, required this.id, required this.bookID, required this.userID, required this.likes,
-  required this.rating, required this.postTime, this.photoURL});
+  required this.rating, required this.postTime, this.photoURL, this.pageNum});
   factory Review.fromJson(Map<String, dynamic> json) => _$ReviewFromJson(json);
   Map<String, dynamic> toJson() => _$ReviewToJson(this);
 }
