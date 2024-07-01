@@ -12,9 +12,13 @@ class PostNotifier extends ChangeNotifier{
   double rating = 0.0;
   
   Future<void> savePost(Book book, String reviewType, String comment, int? pageNum, DateTime postTime) async{
-    var currentUser = await _authRepository.getCurrentUser();
-    var user = await _bookUserRepository.getUser(currentUser?.displayName?? '');
-    _reviewRepository.savePost(book, user, reviewType, comment, pageNum, postTime, rating);
+    var currentUser = _authRepository.getCurrentUser();
+    
+    if (currentUser != null){
+      var user = await _bookUserRepository.getUser(currentUser.email!);
+      _reviewRepository.savePost(book, user!, reviewType, comment, pageNum, postTime, rating);
+    }
+
   }
 
   void setRating(double value){

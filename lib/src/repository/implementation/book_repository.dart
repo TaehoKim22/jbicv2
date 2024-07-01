@@ -10,4 +10,9 @@ class BookRepositoryImp extends BookRepository{
     return _fDataSource.getBookSearchResult(query);
   }
   
+  @override
+  Future<Book?> getBook(String isbn) {
+    return _fDataSource.getBook(isbn);
+  }
+  
 }

@@ -5,14 +5,12 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(),
-            SizedBox(height: 24),
-            Text('Loading...', style: TextStyle(fontSize: 24)),
+            Image.asset('assets/JBIC_transparent.png')
           ],
         ),
       ),

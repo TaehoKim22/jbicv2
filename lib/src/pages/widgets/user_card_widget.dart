@@ -9,6 +9,8 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.transparent, // This makes the card transparent
+      elevation: 0.0, // This removes the shadow
       child: ListTile(
         leading: CircleAvatar(
           backgroundImage: user.photoURL != null ? NetworkImage(user.photoURL!) : null,

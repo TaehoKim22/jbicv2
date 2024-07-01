@@ -4,11 +4,11 @@ import 'package:jbicv2/src/models/book.dart';
 import 'package:jbicv2/src/notifiers/post_notifier.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 
-final postProvider = ChangeNotifierProvider<PostNotifier>((ref){
+final postProvider = ChangeNotifierProvider.autoDispose<PostNotifier>((ref) {
   return PostNotifier();
 });
 
-class PostPage extends ConsumerWidget{
+class PostPage extends ConsumerWidget {
   void dispose() {
     _controller.dispose();
     _pageController.dispose();
@@ -29,12 +29,19 @@ class PostPage extends ConsumerWidget{
           TextButton(
             onPressed: () {
               var currentTime = DateTime.now();
-              int submitRating = int.parse(_pageController.text);
-              postNotifier.savePost(book, reviewType, _controller.text, submitRating, currentTime);
-              dispose();
-              Navigator.pop(context);
+              int? page;
+              if (_pageController.text != ""){
+                page = int.parse(_pageController.text);
+              }
+              postNotifier.savePost(book, reviewType, _controller.text,
+                  page, currentTime).then((_){
+                    Navigator.pop(context);
+                  });
+              
+              
             },
-            child: const Text('Submit', style: TextStyle(color: Colors.deepPurple)),
+            child: const Text('Submit',
+                style: TextStyle(color: Colors.deepPurple)),
           ),
         ],
       ),
@@ -49,20 +56,21 @@ class PostPage extends ConsumerWidget{
               },
               starCount: 5,
               starSize: 40,
-              
             ),
-            if (reviewType == 'Middle') TextField(
-              controller: _pageController,
-              decoration: const InputDecoration(
-                hintText: 'Page number',
+            if (reviewType == 'Middle')
+              TextField(
+                controller: _pageController,
+                decoration: const InputDecoration(
+                  hintText: 'Page number',
+                ),
+                keyboardType: TextInputType.number,
               ),
-              keyboardType: TextInputType.number,
-            ),
             Expanded(
               child: TextField(
                 controller: _controller,
                 maxLines: null,
-                buildCounter: (BuildContext context, { int? currentLength, int? maxLength, bool? isFocused }) {
+                buildCounter: (BuildContext context,
+                    {int? currentLength, int? maxLength, bool? isFocused}) {
                   return Text(
                     '$currentLength / 1000',
                     style: TextStyle(
@@ -76,12 +84,9 @@ class PostPage extends ConsumerWidget{
                 style: const TextStyle(fontSize: 16),
               ),
             ),
-
           ],
         ),
       ),
     );
-
   }
-  
 }

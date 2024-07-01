@@ -20,8 +20,8 @@ class BookUserRepositoryImp extends BookUserRepository{
   }
 
   @override
-  String newId() {
-    return _fDataSource.newId();
+  Future<String> newId(String email, String password) {
+    return _fDataSource.newId(email, password);
   }
 
   @override
@@ -30,10 +30,16 @@ class BookUserRepositoryImp extends BookUserRepository{
   }
   
   @override
-  Future<BookUser> getUser(String userName) {
+  Future<BookUser?> getUser(String userName) {
     return _fDataSource.getUser(userName);
   }
   
+  @override
+  Future<void> createUser(String userName, File? image) {
+    return _fDataSource.saveUser( userName, image);
+  }
+  
+
   
 
 }

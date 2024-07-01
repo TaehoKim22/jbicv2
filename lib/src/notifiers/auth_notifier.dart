@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jbicv2/main.dart';
 import 'package:jbicv2/src/repository/auth_repository.dart';
 
-class AuthNotifier extends StateNotifier<AuthState>{
+class AuthNotifier extends StateNotifier<AuthState> {
   final AuthRepository _authRepository = getIt();
   StreamSubscription? _authSubscription;
 
@@ -30,7 +30,6 @@ class AuthNotifier extends StateNotifier<AuthState>{
     _authSubscription?.cancel();
     return super.dispose();
   }
-  
 }
 
 enum AuthState {

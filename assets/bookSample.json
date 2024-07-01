@@ -4,49 +4,49 @@
             "id": 1,
             "title":"One Hundred Years of Solitude",
             "author":"Gabriel García Márquez",
-            "isbn":9780060883287
+            "isbn":"9780060883287"
         },
         {
             "id": 2,
             "title":"The Great Gatsby",
             "author":"F. Scott Fitzgerald",
-            "isbn":9780743273565
+            "isbn":"9780743273565"
         },
         {
             "id": 3,
             "title": "Ulysses",
             "author":"James Joyce",
-            "isbn":9780679722762
+            "isbn":"9780679722762"
         },
         {
             "id": 4,
             "title": "1984",
             "author":"George Orwell",
-            "isbn":9780452284234
+            "isbn":"9780452284234"
         },
         {
             "id": 5,
             "title": "The Catcher in the Rye",
             "author":"J. D. Salinger",
-            "isbn":9780316769174
+            "isbn":"9780316769174"
         },
         {
             "id": 6,
             "title": "The Stranger",
             "author":"Albert Camus",
-            "isbn":9780679720201
+            "isbn":"9780679720201"
         },
         {
             "id": 7,
             "title": "The Brothers Karamazov",
             "author":"Fyodor Dostoevsky",
-            "isbn":9780140449242
+            "isbn":"9780140449242"
         },
         {
             "id": 8,
             "title": "Lolita ",
             "author":"Vladimir Nabokov",
-            "isbn":9780679723165
+            "isbn":"9780679723165"
         }
     ]
 }

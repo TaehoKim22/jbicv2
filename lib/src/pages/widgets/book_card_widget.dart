@@ -10,6 +10,8 @@ class BookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.transparent, // This makes the card transparent
+      elevation: 0.0, // This removes the shadow
       child: ListTile(
         leading: FadeInImage.assetNetwork(
           placeholder: cupertinoActivityIndicator,

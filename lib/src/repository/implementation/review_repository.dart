@@ -8,9 +8,9 @@ import 'package:jbicv2/src/repository/review_repository.dart';
 class ReviewRepositoryImp extends ReviewRepository{
   final FirebaseDataSource _fDataSource = getIt();
   @override
-  Future<List<Review>> getBookReview(int bookID)
+  Future<List<Review?>> getBookReview(String isbn)
   {
-    return _fDataSource.getBookReview(bookID);
+    return _fDataSource.getBookReview(isbn);
   }
 
   @override
